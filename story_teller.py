@@ -1,7 +1,7 @@
 # story_teller.py
 from transformers import pipeline
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 from dotenv import load_dotenv
 from PIL import Image
 import streamlit as st
@@ -48,4 +48,5 @@ Now write the STORY:
     story = llm.invoke(formatted_prompt).content
     print(f"[Generate_story] {story}")
     return story
+
 
