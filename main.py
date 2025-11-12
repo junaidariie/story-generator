@@ -5,7 +5,7 @@ from PIL import Image
 from io import BytesIO
 
 st.title("Image to Story Generator")
-
+openai_key = st.secrets["OPENAI_API_KEY"]
 # Upload image
 uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
 
@@ -31,3 +31,4 @@ if uploaded_file is not None:
 
         except Exception as e:
             st.error(f"Failed: {e}")
+
