@@ -4,9 +4,11 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 from PIL import Image
+import streamlit as st
 import os
 
 load_dotenv()
+openai_key = st.secrets["OPENAI_API_KEY"]
 
 # ---------------- Load models/pipelines once ----------------
 pipe = pipeline("image-to-text", model="Salesforce/blip-image-captioning-large", use_fast=True)
@@ -46,3 +48,4 @@ Now write the STORY:
     story = llm.invoke(formatted_prompt).content
     print(f"[Generate_story] {story}")
     return story
+
